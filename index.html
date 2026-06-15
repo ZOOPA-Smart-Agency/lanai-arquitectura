@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LANAI · Arquitectura de marca</title>
+<meta name="description" content="Arquitectura de marca LANAI. Quiénes somos, en qué creemos y cómo lo decimos. La identidad visual se entrega aparte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111111;
+  --black:#0a0a0a;
+  --grey:#6b6b6b;
+  --grey-2:#9a9a9a;
+  --line:#e6e6e6;
+  --line-2:#d4d4d4;
+  --accent:#e85d2a;
+  --bg:#ffffff;
+  --side-w:300px;
+  --pad-x:7vw;
+  --font:'Inter',system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+em{font-style:italic}
+b,strong{font-weight:600}
+
+/* ===== SIDEBAR ===== */
+.side{
+  position:fixed;top:0;left:0;bottom:0;width:var(--side-w);
+  border-right:1px solid var(--line);background:var(--bg);
+  display:flex;flex-direction:column;overflow-y:auto;z-index:20;
+}
+.side::-webkit-scrollbar{width:0}
+.side .logo{padding:28px 28px 22px;border-bottom:1px solid var(--line)}
+.side .logo .word{font-size:26px;font-weight:700;letter-spacing:.04em}
+.side .meta{padding:18px 28px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;line-height:1.7;letter-spacing:.04em;color:var(--grey);text-transform:uppercase}
+.nav{padding:10px 0 40px}
+.grp{border-bottom:1px solid var(--line)}
+.grp:last-child{border-bottom:0}
+.grp .sec{
+  display:grid;grid-template-columns:30px 1fr 16px;align-items:center;gap:6px;
+  padding:13px 28px;font-size:15px;font-weight:500;cursor:pointer;
+  border-left:2px solid transparent;
+}
+.grp .sec .ix{font-size:13px;color:var(--grey);font-variant-numeric:tabular-nums}
+.grp .sec .car{justify-self:end;color:var(--grey-2);font-size:11px;transition:transform .2s}
+.grp.has-sub .sec .car::before{content:"\\25BE"}
+.grp:not(.has-sub) .sec .car{display:none}
+.grp.open .sec .car{transform:rotate(180deg)}
+.grp .sec:hover{background:#fafafa}
+.grp .sec.active{color:var(--accent);border-left-color:var(--accent)}
+.grp .sec.active .ix{color:var(--accent)}
+.sub{list-style:none;padding:2px 0 12px}
+.grp:not(.open) .sub{display:none}
+.sub a{display:block;padding:7px 28px 7px 60px;font-size:13.5px;color:var(--grey)}
+.sub a:hover{color:var(--ink)}
+.sub a.active{color:var(--accent)}
+
+/* ===== MAIN ===== */
+.main{margin-left:var(--side-w)}
+.opener{
+  background:var(--black);color:#fff;
+  padding:64px var(--pad-x);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:30px;
+}
+.opener .num{font-size:clamp(38px,5vw,64px);font-weight:500;line-height:.9;color:#fff;font-variant-numeric:tabular-nums}
+.opener .t{font-size:clamp(40px,6vw,76px);font-weight:500;line-height:.95;letter-spacing:-.02em;text-align:right}
+.body{padding:70px var(--pad-x) 30px;max-width:1320px}
+.body.last{padding-bottom:90px}
+
+/* intro paragraph after opener */
+.intro{font-size:clamp(22px,2.5vw,32px);font-weight:400;line-height:1.32;letter-spacing:-.01em;max-width:30ch;margin-bottom:14px}
+.intro.wide{max-width:46ch}
+
+/* row: label left, content right */
+.row{
+  display:grid;grid-template-columns:230px 1fr;gap:64px;
+  padding:42px 0;border-top:1px solid var(--line);align-items:start;
+}
+.row:first-of-type{border-top:0}
+.row > .label{font-size:19px;font-weight:600;letter-spacing:-.01em;padding-top:2px}
+.row > .content{min-width:0}
+.row > .content > p{font-size:18px;line-height:1.55;max-width:62ch;margin-bottom:14px}
+.row > .content > p:last-child{margin-bottom:0}
+.row > .content > p.muted{color:var(--grey)}
+.row > .content .small{font-size:15px;color:var(--grey);max-width:62ch}
+
+/* big statement */
+.statement{font-size:clamp(26px,3vw,40px);font-weight:500;line-height:1.18;letter-spacing:-.02em;max-width:24ch;margin-bottom:16px}
+.statement .acc{color:var(--accent)}
+.statement + .note{font-size:17px;color:var(--grey);max-width:60ch;line-height:1.5}
+
+/* sub-item grid (left rule) */
+.items{display:grid;grid-template-columns:1fr 1fr;gap:30px 48px;margin-top:4px}
+.items.c3{grid-template-columns:1fr 1fr 1fr}
+.items.c1{grid-template-columns:1fr;max-width:62ch}
+.item{border-left:1px solid var(--line-2);padding-left:18px}
+.item h5{font-size:16px;font-weight:600;margin-bottom:5px;letter-spacing:-.005em}
+.item h5 .ix{color:var(--accent);font-weight:600;margin-right:8px;font-variant-numeric:tabular-nums}
+.item p{font-size:14.5px;line-height:1.5;color:var(--grey)}
+
+/* use / avoid two columns */
+.ua{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:4px}
+.ua .col{border-left:1px solid var(--line-2);padding-left:18px}
+.ua .col .h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--grey);margin-bottom:12px}
+.ua .col.no .h{color:var(--accent)}
+.ua .col ul{list-style:none}
+.ua .col li{font-size:15px;line-height:1.5;padding:6px 0;color:var(--ink)}
+.ua .col li b{display:inline}
+.ua .col.no li{color:var(--grey)}
+
+/* stacked cards (do / dont) */
+.cards{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+.card{border:1px solid var(--line);padding:20px 22px}
+.card h5{font-size:16px;font-weight:600;margin-bottom:6px}
+.card p{font-size:15px;line-height:1.5;color:var(--grey);max-width:70ch}
+
+/* grey example / quote */
+.exq{border-left:2px solid var(--line-2);padding:4px 0 4px 18px;margin-top:14px;color:var(--grey);font-size:15.5px;line-height:1.55;max-width:62ch}
+
+/* key statement block (intro idea) */
+.kv{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:38px 0;margin:0}
+
+footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font-size:13px;color:var(--grey);font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;line-height:1.7}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1000px){
+  .side{transform:translateX(-100%);transition:transform .25s}
+  .main{margin-left:0}
+  .row{grid-template-columns:1fr;gap:14px}
+  .items,.items.c3,.ua{grid-template-columns:1fr}
+}
+
+/* ===== PRINT ===== */
+@page{margin:14mm}
+@media print{
+  .side{display:none}
+  .main{margin-left:0}
+  .opener{padding:28px 0;background:#fff;color:#000;border-bottom:2px solid #000;-webkit-print-color-adjust:exact}
+  .opener .num,.opener .t{color:#000}
+  .body{padding:24px 0;max-width:none}
+  .row{break-inside:avoid;padding:22px 0}
+  .intro{font-size:20px}
+  body{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="side">
+  <div class="logo"><div class="word">LANAI</div></div>
+  <div class="meta">Arquitectura de marca</div>
+  <nav class="nav">
+    <div class="grp"><div class="sec" data-t="s1"><span class="ix">01</span><span>Introducción</span><span class="car"></span></div></div>
+    <div class="grp"><div class="sec" data-t="s2"><span class="ix">02</span><span>En qué creemos</span><span class="car"></span></div></div>
+    <div class="grp"><div class="sec" data-t="s3"><span class="ix">03</span><span>Quiénes somos</span><span class="car"></span></div></div>
+    <div class="grp"><div class="sec" data-t="s4"><span class="ix">04</span><span>Propósito</span><span class="car"></span></div></div>
+    <div class="grp has-sub"><div class="sec" data-t="s5"><span class="ix">05</span><span>Posicionamiento</span><span class="car"></span></div>
+      <ul class="sub">
+        <li><a data-t="s5b">El territorio</a></li>
+        <li><a data-t="s5c">Atributo raíz: intrépida</a></li>
+      </ul>
+    </div>
+    <div class="grp"><div class="sec" data-t="s6"><span class="ix">06</span><span>Carácter</span><span class="car"></span></div></div>
+    <div class="grp has-sub"><div class="sec" data-t="s7"><span class="ix">07</span><span>Arquitectura</span><span class="car"></span></div>
+      <ul class="sub">
+        <li><a data-t="s7b">El founder en el centro</a></li>
+        <li><a data-t="s7c">Naming</a></li>
+        <li><a data-t="s7d">Endoso y co-branding</a></li>
+      </ul>
+    </div>
+    <div class="grp has-sub"><div class="sec" data-t="s8"><span class="ix">08</span><span>Lenguaje</span><span class="car"></span></div>
+      <ul class="sub">
+        <li><a data-t="s8b">Voz: persona a persona</a></li>
+        <li><a data-t="s8c">Smart Brevity</a></li>
+        <li><a data-t="s8d">Vocabulario y mensajes</a></li>
+      </ul>
+    </div>
+    <div class="grp"><div class="sec" data-t="s9"><span class="ix">09</span><span>Comportamientos</span><span class="car"></span></div></div>
+    <div class="grp"><div class="sec" data-t="s10"><span class="ix">10</span><span>El test LANAI</span><span class="car"></span></div></div>
+  </nav>
+</aside>
+
+<!-- ===================== MAIN ===================== -->
+<main class="main">
+
+<!-- 01 INTRODUCCIÓN -->
+<header class="opener" id="s1"><span class="num">01</span><span class="t">Introducción</span></header>
+<section class="body">
+  <p class="intro">LANAI invierte como un emprendedor. Con audacia, con propósito y por el impacto, antes que por el resultado.</p>
+
+  <div class="row kv">
+    <div class="label">La marca en una frase</div>
+    <div class="content">
+      <div class="statement">Intrépidos, como el founder al que <span class="acc">respaldamos.</span></div>
+      <p class="note">Si una decisión, un copy o una cláusula no es intrépida, no es LANAI.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="label">De un vistazo</div>
+    <div class="content">
+      <div class="items">
+        <div class="item"><h5>Propósito</h5><p>Respaldar a founders que cambian el mundo.</p></div>
+        <div class="item"><h5>Idea de marca</h5><p>Cómo sería un emprendedor si se convirtiera en un fondo.</p></div>
+        <div class="item"><h5>Posicionamiento</h5><p>El fondo intrépido. Invierte con la audacia de un founder.</p></div>
+        <div class="item"><h5>Atributo raíz</h5><p>Intrépida.</p></div>
+        <div class="item"><h5>Carácter</h5><p>Intrépida, apasionada, con propósito, romántica, innovadora.</p></div>
+        <div class="item"><h5>Protagonista</h5><p>El founder. Aliado de un mismo objetivo: un mundo mejor.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="label">Cómo leer esto</div>
+    <div class="content">
+      <p>Una idea por sección. La etiqueta de la izquierda dice <b>qué</b> es. La derecha lo desarrolla.</p>
+      <p class="muted">El manual de marca cuenta el porqué. Este documento ordena el qué y el cómo. La identidad visual se entrega en un documento aparte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 EN QUÉ CREEMOS -->
+<header class="opener" id="s2"><span class="num">02</span><span class="t">En qué creemos</span></header>
+<section class="body">
+  <p class="intro wide">Lo que creemos sobre invertir. Nuestra postura, en claro. Un punto de vista atrae a los founders que lo comparten.</p>
+
+  <div class="row">
+    <div class="label">Creencia central</div>
+    <div class="content">
+      <div class="statement">El mejor capital <span class="acc">se atreve.</span></div>
+      <p class="note">El cálculo prudente no cambió el mundo. La audacia con propósito, sí.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="label">Nuestras creencias</div>
+    <div class="content">
+      <div class="items">
+        <div class="item"><h5>Convicción y cálculo</h5><p>El dato importa. La persona que se atreve detrás, también.</p></div>
+        <div class="item"><h5>El founder es el héroe</h5><p>El fondo está para servirle, no para lucirse.</p></div>
+        <div class="item"><h5>El impacto es la mejor métrica</h5><p>A largo plazo, lo que importa dura.</p></div>
+        <div class="item"><h5>La cercanía vale más que el cheque</h5><p>Estar al lado pesa más que entrar primero.</p></div>
+      </div>
+      <div class="exq">Un punto de vista claro atrae a los founders que comparten esta visión y aleja a los que no. Esa es su función.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 QUIÉNES SOMOS -->
+<header class="opener" id="s3"><span class="num">03</span><span class="t">Quiénes somos</span></header>
+<section class="body">
+  <p class="intro wide">Un fondo de venture capital de diez años. Resultados de primer nivel. Pensamos y actuamos como los emprendedores a los que respaldamos.</p>
+
+  <div class="row"><div class="label">Qué somos</div><div class="content"><p>Fondo de venture capital. Diez años invirtiendo y construyendo junto a founders.</p></div></div>
+  <div class="row"><div class="label">Quién lo lleva</div><div class="content"><p>Cuatro GPs operadores. Crean y gestionan empresas reales mientras invierten.</p></div></div>
+  <div class="row"><div class="label">Resultados</div><div class="content"><p>Top decile global por DPI. Top 5% europeo. Crecimiento orgánico, sin agencia de comunicación.</p></div></div>
+  <div class="row"><div class="label">Quién invierte</div><div class="content"><p>LPs. El 80% son founders-inversores de vehículos anteriores.</p></div></div>
+  <div class="row"><div class="label">Qué nos mueve</div><div class="content"><p>El impacto de lo que construimos, antes que el múltiplo.</p>
+    <div class="exq">La marca no inventa nada. Ordena diez años de comportamiento intrépido y lo hace legible. No fabricamos una promesa: damos forma a lo que ya hacemos.</div></div></div>
+</section>
+
+<!-- 04 PROPÓSITO -->
+<header class="opener" id="s4"><span class="num">04</span><span class="t">Propósito</span></header>
+<section class="body">
+  <p class="intro">Por qué existe LANAI. Todo lo demás es consecuencia.</p>
+
+  <div class="row">
+    <div class="label">Propósito</div>
+    <div class="content">
+      <div class="statement">Respaldar a founders que <span class="acc">cambian el mundo.</span></div>
+      <p class="note">El impacto llega a través de buenos resultados.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">Qué significa</div>
+    <div class="content">
+      <div class="items c3">
+        <div class="item"><h5>Impacto a través del resultado</h5><p>El resultado es el camino.</p></div>
+        <div class="item"><h5>Founders como aliados</h5><p>Compartimos un objetivo: un mundo mejor.</p></div>
+        <div class="item"><h5>Innovación con sentido</h5><p>Respaldamos proyectos nuevos que mueven el mundo hacia delante.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 POSICIONAMIENTO -->
+<header class="opener" id="s5"><span class="num">05</span><span class="t">Posicionamiento</span></header>
+<section class="body">
+  <p class="intro wide">Dónde está LANAI en la mente del founder y del LP.</p>
+
+  <div class="row">
+    <div class="label">Posicionamiento</div>
+    <div class="content">
+      <div class="statement">El fondo <span class="acc">intrépido.</span></div>
+      <p class="note">Sea o no el cheque más grande: el socio más valiente, el que te acompaña hasta el final.</p>
+    </div>
+  </div>
+
+  <div class="row" id="s5b">
+    <div class="label">El territorio</div>
+    <div class="content">
+      <div class="items c3">
+        <div class="item"><h5>Está libre</h5><p>El sector compite por prudencia y tamaño. Nadie reclama la audacia con propósito.</p></div>
+        <div class="item"><h5>Es coherente</h5><p>Diez años respaldando lo que otros esquivaron lo demuestran.</p></div>
+        <div class="item"><h5>Se prueba</h5><p>Mira en qué invirtió LANAI cuando casi nadie lo hacía. Ahí se ve el carácter.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="s5c">
+    <div class="label">Atributo raíz: intrépida</div>
+    <div class="content">
+      <div class="statement">Intrépida.</div>
+      <p class="note" style="margin-bottom:26px">La palabra que filtra cada decisión. Audacia con criterio, al lado del founder.</p>
+      <div class="ua">
+        <div class="col"><div class="h">Qué es</div><ul>
+          <li><b>Un filtro.</b> ¿Nos atrevemos a lo que otros esquivan?</li>
+          <li><b>Un puente.</b> Conecta la audacia con el propósito.</li>
+          <li><b>Una prueba.</b> ¿Lo respaldaríamos aunque sea incómodo?</li>
+        </ul></div>
+        <div class="col no"><div class="h">Qué la confunde</div><ul>
+          <li>Intrépida, distinta de temeraria. Audacia con criterio.</li>
+          <li>Valiente, más que ruidosa. No busca el titular.</li>
+          <li>Convencida, más que contracorriente por moda.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CARÁCTER -->
+<header class="opener" id="s6"><span class="num">06</span><span class="t">Carácter</span></header>
+<section class="body">
+  <p class="intro wide">Cómo sería un emprendedor si se convirtiera en un fondo. Ese es el carácter de LANAI.</p>
+
+  <div class="row">
+    <div class="label">El carácter</div>
+    <div class="content"><div class="statement">Intrépida, apasionada y <span class="acc">con propósito.</span></div>
+    <p class="note">LANAI piensa como el founder al que respalda. Asume riesgo, se implica de verdad y mide su éxito por el impacto.</p></div>
+  </div>
+  <div class="row">
+    <div class="label">Los cinco rasgos</div>
+    <div class="content">
+      <div class="items c3">
+        <div class="item"><h5><span class="ix">01</span>Intrépida</h5><p>Asume el riesgo que otros esquivan. La audacia es el punto de partida.</p></div>
+        <div class="item"><h5><span class="ix">02</span>Apasionada</h5><p>Se implica de verdad. El compromiso es personal, no contractual.</p></div>
+        <div class="item"><h5><span class="ix">03</span>Con propósito</h5><p>Cada decisión apunta a algo más grande que el retorno.</p></div>
+        <div class="item"><h5><span class="ix">04</span>Eficaz</h5><p>Sabe que el resultado es lo que garantiza la continuidad.</p></div>
+        <div class="item"><h5><span class="ix">05</span>Innovadora</h5><p>Respalda proyectos nuevos que empujan hacia un mundo mejor.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">El founder</div>
+    <div class="content"><p>El founder es un aliado del mismo objetivo: hacer un mundo mejor. LANAI invierte en quien contribuye a ese propósito.</p></div>
+  </div>
+</section>
+
+<!-- 07 ARQUITECTURA -->
+<header class="opener" id="s7"><span class="num">07</span><span class="t">Arquitectura</span></header>
+<section class="body">
+  <p class="intro wide">Cómo se relaciona LANAI con sus founders, fondos, programas y LPs. La decisión central de la marca.</p>
+
+  <div class="row" id="s7b">
+    <div class="label">El founder en el centro</div>
+    <div class="content">
+      <div class="statement">El founder en el centro. <span class="acc">LANAI lo respalda.</span></div>
+      <p class="note" style="margin-bottom:26px">Una sola marca madre. Al revés que casi todos los fondos, LANAI cede el protagonismo. Sostiene al héroe; no lo tapa.</p>
+      <div class="ua">
+        <div class="col"><div class="h">Cuándo aparece</div><ul>
+          <li>Cuando habla a LPs: web, reporting, deck de fondo.</li>
+          <li>Como respaldo del founder, en segundo plano.</li>
+          <li>En programas propios: eventos, casos, el "no" argumentado.</li>
+        </ul></div>
+        <div class="col no"><div class="h">Cuándo se aparta</div><ul>
+          <li>En la web de la participada: solo si el founder quiere.</li>
+          <li>Por encima del founder en jerarquía: jamás.</li>
+          <li>Convirtiendo el portfolio en vitrina del fondo: jamás.</li>
+        </ul></div>
+      </div>
+      <div class="exq">Cómo decidir en 5 segundos: ¿esta pieza hace más grande al founder o al fondo? La marca de LANAI crece cuando crece la del founder.</div>
+    </div>
+  </div>
+
+  <div class="row" id="s7c">
+    <div class="label">Naming</div>
+    <div class="content">
+      <p class="muted" style="margin-bottom:22px">El lenguaje directo, claro y simple. Sin nombres "de marketing".</p>
+      <div class="items">
+        <div class="item"><h5>Marca madre</h5><p>Siempre LANAI. Wordmark. Dominio lanai.vc.</p></div>
+        <div class="item"><h5>Fondos</h5><p>LANAI + número romano. LANAI I, II, III. Sobrio, institucional.</p></div>
+        <div class="item"><h5>Programas</h5><p>Por lo que hacen, en lenguaje natural. Sin sub-logo, sin marca propia.</p></div>
+        <div class="item"><h5>Herramientas</h5><p>Nombre funcional y corto. El test LANAI, el skill lanaizar.</p></div>
+      </div>
+      <div class="ua" style="margin-top:28px">
+        <div class="col"><div class="h">Di esto</div><ul>
+          <li><b>Respaldada por LANAI.</b> La empresa es del founder.</li>
+          <li><b>En el portfolio de LANAI.</b> El founder no es un activo.</li>
+          <li><b>Respaldado desde 2021.</b> Lenguaje de socio.</li>
+        </ul></div>
+        <div class="col no"><div class="h">No digas esto</div><ul>
+          <li>Una empresa de LANAI.</li>
+          <li>Una LANAI company.</li>
+          <li>Powered by LANAI.</li>
+        </ul></div>
+      </div>
+      <div class="exq">Filtro de naming: ¿está en lenguaje llano? ¿suena intrépido y con propósito? ¿deja al founder por delante? Tres síes, y el nombre es LANAI.</div>
+    </div>
+  </div>
+
+  <div class="row" id="s7d">
+    <div class="label">Endoso y co-branding</div>
+    <div class="content">
+      <p>El founder manda, LANAI respalda en segundo plano. La marca del founder siempre por delante.</p>
+      <div class="items" style="margin-top:18px">
+        <div class="item"><h5>Jerarquía</h5><p>La marca del founder por delante de LANAI. LANAI nunca domina.</p></div>
+        <div class="item"><h5>En materiales del founder</h5><p>LANAI aparece solo si el founder lo decide.</p></div>
+        <div class="item"><h5>Wall of founders</h5><p>Caras con nombre, no wall of logos. Incluye a quien cerró, con su permiso.</p></div>
+        <div class="item"><h5>En materiales de LANAI</h5><p>El founder es el protagonista. LANAI es el marco.</p></div>
+      </div>
+      <div class="exq">La excepción que define la marca: el founder cuya empresa cerró aparece con el mismo cuidado que el que triunfó. Apostamos por personas, no solo por resultados.</div>
+      <p class="small" style="margin-top:18px">Las especificaciones visuales del lockup (tamaños, color, retrato) viven en el documento de identidad visual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 LENGUAJE -->
+<header class="opener" id="s8"><span class="num">08</span><span class="t">Lenguaje</span></header>
+<section class="body">
+  <p class="intro wide">Tan importante como qué decimos es cómo sonamos. Directa, específica, honesta. Siempre de alguien, para alguien.</p>
+
+  <div class="row" id="s8b">
+    <div class="label">Voz: persona a persona</div>
+    <div class="content">
+      <div class="statement">Personas hablando a personas. <span class="acc">Siempre firmado.</span></div>
+      <p class="note" style="margin-bottom:24px">Para LANAI todo es personal, porque es un compromiso personal: con que la inversión irá bien y con que el founder tendrá las herramientas para lograrlo.</p>
+      <div class="items c3">
+        <div class="item"><h5>Todo firmado</h5><p>Cada mensaje lo firma alguien. La comunicación genérica queda fuera.</p></div>
+        <div class="item"><h5>Mejor un founder</h5><p>Que un founder hable por el fondo pesa más que cualquier texto anónimo.</p></div>
+        <div class="item"><h5>Persona a persona</h5><p>Siempre alguien dirigiéndose a alguien, nunca una entidad a emprendedores.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="s8c">
+    <div class="label">Smart Brevity</div>
+    <div class="content">
+      <p class="muted" style="margin-bottom:22px">Cómo escribimos. La gente escanea, no lee.</p>
+      <div class="items">
+        <div class="item"><h5>Lo importante primero</h5><p>La idea principal abre el mensaje.</p></div>
+        <div class="item"><h5>Menos, pero mejor</h5><p>Eliminar todo lo que no aporta. No es escribir poco.</p></div>
+        <div class="item"><h5>Explica por qué importa</h5><p>Responde rápido: ¿qué es? ¿por qué me interesa?</p></div>
+        <div class="item"><h5>Estructura visual</h5><p>Títulos claros, listas, frases cortas, espacio en blanco.</p></div>
+        <div class="item"><h5>Respeta el tiempo</h5><p>Ser breve es respeto. Mejora la comprensión y la acción.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="s8d">
+    <div class="label">Vocabulario y mensajes</div>
+    <div class="content">
+      <div class="ua">
+        <div class="col no"><div class="h">Trampa (no usar)</div><ul>
+          <li>Founder-friendly</li><li>Long-term partner</li><li>Smart money</li><li>Trusted / hands-on</li><li>Exit</li>
+        </ul></div>
+        <div class="col"><div class="h">Di esto en su lugar</div><ul>
+          <li>Nos atrevemos donde otros dudan.</li>
+          <li>Misma audacia cuando es fácil y cuando es difícil.</li>
+          <li>Operadores que invierten.</li>
+          <li>Una cita literal de un founder. Un caso.</li>
+          <li>Trayecto. Relación sostenida.</li>
+        </ul></div>
+      </div>
+      <div class="exq">Regla de una línea: dato antes que adjetivo, caso antes que claim. "Top decile global por DPI" gana a "excelentes retornos" siempre.</div>
+      <div class="cards" style="margin-top:26px">
+        <div class="card"><h5>El "no" argumentado</h5><p>Una razón estructural, no genérica. Algo útil que dejar. Puerta abierta para la próxima. SLA menor a 7 días, también a deals de la web. Firmado por una persona.</p></div>
+        <div class="card"><h5>La LP letter trimestral</h5><p>Resumen en 3 líneas. Performance con números antes que narrativa. Lo que va bien y lo que va mal, obligatorio. Una cita literal de un founder, idealmente uno bajo crisis.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 COMPORTAMIENTOS -->
+<header class="opener" id="s9"><span class="num">09</span><span class="t">Comportamientos</span></header>
+<section class="body">
+  <p class="intro wide">La marca se sostiene en hechos, no en adjetivos. Estos comportamientos prueban que LANAI es intrépida y se implica con el founder.</p>
+
+  <div class="row">
+    <div class="label">Nueve anclas</div>
+    <div class="content">
+      <div class="items c3">
+        <div class="item"><h5><span class="ix">01</span>Apostar pronto y solo</h5><p>Respaldar al founder antes que el consenso del mercado.</p></div>
+        <div class="item"><h5><span class="ix">02</span>Tesis incómodas</h5><p>Apostar fuera del hype cuando el propósito lo justifica.</p></div>
+        <div class="item"><h5><span class="ix">03</span>Cláusula colchón</h5><p>Recursos al founder para atreverse sin miedo a la red.</p></div>
+        <div class="item"><h5><span class="ix">04</span>Medir impacto</h5><p>Reportar el efecto real del proyecto, no solo el múltiplo.</p></div>
+        <div class="item"><h5><span class="ix">05</span>El "no" argumentado</h5><p>Razón estructural y algo útil que dejar. SLA menor a 7 días.</p></div>
+        <div class="item"><h5><span class="ix">06</span>LP trimestrales</h5><p>Cuatro veces al año. El estándar del sector es anual.</p></div>
+        <div class="item"><h5><span class="ix">07</span>Eventos sin VCs externos</h5><p>Solo founders y LPs. Sin sponsors, sin prensa.</p></div>
+        <div class="item"><h5><span class="ix">08</span>Reporting bajo crisis</h5><p>Misma cadencia cuando va mal. "Lo que va mal" siempre.</p></div>
+        <div class="item"><h5><span class="ix">09</span>Dar la cara</h5><p>Mediar en el cap-table y sostener al founder bajo presión.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">La marca en la web</div>
+    <div class="content">
+      <div class="items">
+        <div class="item"><h5>Home</h5><p>Sin wall of logos. Propósito, un founder hablando y datos.</p></div>
+        <div class="item"><h5>En qué nos atrevimos</h5><p>La tesis con tres apuestas que otros esquivaron.</p></div>
+        <div class="item"><h5>10 años, sin maquillar</h5><p>Los casos de empresas cerradas. La diferencia frente al peer set.</p></div>
+        <div class="item"><h5>Cómo decimos que no</h5><p>Mails de "no" reales, anonimizados. Posicionamiento por demostración.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 TEST -->
+<header class="opener" id="s10"><span class="num">10</span><span class="t">El test LANAI</span></header>
+<section class="body last">
+  <p class="intro wide">Antes de publicar o decidir algo (un copy, una cláusula, un evento, un mail) pásalo por cinco filtros sí/no.</p>
+
+  <div class="row">
+    <div class="label">Cinco filtros</div>
+    <div class="content">
+      <div class="items">
+        <div class="item"><h5><span class="ix">01</span>Audacia</h5><p>¿Nos atrevemos a algo que otros esquivan?</p></div>
+        <div class="item"><h5><span class="ix">02</span>Propósito</h5><p>¿Contribuye a un mundo mejor, más allá del retorno?</p></div>
+        <div class="item"><h5><span class="ix">03</span>Personal</h5><p>¿Lo firma una persona y suena de persona a persona?</p></div>
+        <div class="item"><h5><span class="ix">04</span>Founder primero</h5><p>¿Deja al founder por delante del fondo?</p></div>
+        <div class="item"><h5><span class="ix">05</span>Coherencia</h5><p>¿Lo sostienen nuestros hechos, no solo nuestras palabras?</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">Veredicto</div>
+    <div class="content">
+      <div class="cards">
+        <div class="card"><h5>5/5 es LANAI core</h5><p>Publícalo. Es exactamente la marca.</p></div>
+        <div class="card"><h5>4/5 es LANAI</h5><p>Adelante, mitigando el filtro que falla.</p></div>
+        <div class="card"><h5>3/5 reescribe</h5><p>La idea sirve, la ejecución todavía no.</p></div>
+        <div class="card"><h5>2 o menos</h5><p>Busca otra idea. Esto no representa a LANAI.</p></div>
+      </div>
+      <div class="exq">El test está automatizado en el skill <b>lanaizar</b>.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  La identidad visual se entrega en un documento aparte.
+</footer>
+
+</main>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav [data-t]'));
+  var map={}; links.forEach(function(a){map[a.dataset.t]=a;});
+  var targets=links.map(function(a){return document.getElementById(a.dataset.t);}).filter(Boolean);
+
+  function setActive(id){
+    links.forEach(function(a){a.classList.remove('active');});
+    var a=map[id]; if(!a) return;
+    a.classList.add('active');
+    document.querySelectorAll('.grp').forEach(function(g){g.classList.remove('open');});
+    var grp=a.closest('.grp'); if(grp){grp.classList.add('open');}
+    // if a subsection is active, also mark its parent section link
+    if(a.parentNode && a.parentNode.classList.contains('sub') || (a.closest && a.closest('.sub'))){
+      var sec=grp && grp.querySelector('.sec'); if(sec){sec.classList.add('active');}
+    }
+  }
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ setActive(e.target.id); } });
+  },{rootMargin:'-25% 0px -65% 0px',threshold:0});
+  targets.forEach(function(t){io.observe(t);});
+
+  links.forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var el=document.getElementById(a.dataset.t);
+      if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+
+  // open first group by default
+  var first=document.querySelector('.grp'); if(first){first.classList.add('open'); var fs=first.querySelector('.sec'); if(fs)fs.classList.add('active');}
+})();
+</script>
+</body>
+</html>
