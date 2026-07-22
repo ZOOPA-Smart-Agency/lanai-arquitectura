@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LANAI · Arquitectura de marca</title>
@@ -128,6 +127,14 @@ b,strong{font-weight:600}
 /* key statement block (intro idea) */
 .kv{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:38px 0;margin:0}
 
+/* manifesto · flowing belief block */
+.manifesto{margin-top:20px;max-width:34ch}
+.manifesto p{font-size:clamp(24px,3vw,40px);font-weight:400;letter-spacing:-.02em;line-height:1.28;color:var(--ink);margin-bottom:18px}
+.manifesto p:last-child{margin-bottom:0}
+.manifesto p .acc{color:var(--accent)}
+.manifesto p.close{font-weight:700;margin-top:6px}
+@media(max-width:1000px){.manifesto{max-width:none}}
+
 footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font-size:13px;color:var(--grey);font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;line-height:1.7}
 
 /* ===== RESPONSIVE ===== */
@@ -209,11 +216,11 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
     <div class="label">De un vistazo</div>
     <div class="content">
       <div class="items">
-        <div class="item"><h5>Propósito</h5><p>Respaldar a founders que cambian el mundo.</p></div>
+        <div class="item"><h5>Propósito</h5><p>Que los founders más valientes cambien el mundo.</p></div>
         <div class="item"><h5>Idea de marca</h5><p>Cómo sería un emprendedor si se convirtiera en un fondo.</p></div>
         <div class="item"><h5>Posicionamiento</h5><p>El fondo intrépido. Invierte con la audacia de un founder.</p></div>
         <div class="item"><h5>Atributo raíz</h5><p>Intrépida.</p></div>
-        <div class="item"><h5>Carácter</h5><p>Intrépida, apasionada, con propósito, romántica, innovadora.</p></div>
+        <div class="item"><h5>Carácter</h5><p>Intrépida, apasionada, con propósito, eficaz, innovadora.</p></div>
         <div class="item"><h5>Protagonista</h5><p>El founder. Aliado de un mismo objetivo: un mundo mejor.</p></div>
       </div>
     </div>
@@ -231,27 +238,14 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
 <!-- 02 EN QUÉ CREEMOS -->
 <header class="opener" id="s2"><span class="num">02</span><span class="t">En qué creemos</span></header>
 <section class="body">
-  <p class="intro wide">Lo que creemos sobre invertir. Nuestra postura, en claro. Un punto de vista atrae a los founders que lo comparten.</p>
+  <p class="intro wide">Nuestra postura sobre invertir, en claro. Un punto de vista atrae a los founders que lo comparten.</p>
 
-  <div class="row">
-    <div class="label">Creencia central</div>
-    <div class="content">
-      <div class="statement">El mejor capital <span class="acc">se atreve.</span></div>
-      <p class="note">El cálculo prudente no cambió el mundo. La audacia con propósito, sí.</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="label">Nuestras creencias</div>
-    <div class="content">
-      <div class="items">
-        <div class="item"><h5>Convicción y cálculo</h5><p>El dato importa. La persona que se atreve detrás, también.</p></div>
-        <div class="item"><h5>El founder es el héroe</h5><p>El fondo está para servirle, no para lucirse.</p></div>
-        <div class="item"><h5>El impacto es la mejor métrica</h5><p>A largo plazo, lo que importa dura.</p></div>
-        <div class="item"><h5>La cercanía vale más que el cheque</h5><p>Estar al lado pesa más que entrar primero.</p></div>
-      </div>
-      <div class="exq">Un punto de vista claro atrae a los founders que comparten esta visión y aleja a los que no. Esa es su función.</div>
-    </div>
+  <div class="manifesto">
+    <p>Creemos que el mundo lo cambian los <span class="acc">founders más valientes.</span></p>
+    <p>Creemos en el instinto: lo mejor no siempre lo parece al principio.</p>
+    <p>Creemos en estar cerca cuando va bien y, sobre todo, cuando va mal.</p>
+    <p>Creemos que lo que de verdad importa tarda: por eso tenemos paciencia.</p>
+    <p class="close">El héroe siempre es el founder. Nosotros, quien lo respalda.</p>
   </div>
 </section>
 
@@ -262,31 +256,31 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
 
   <div class="row"><div class="label">Qué somos</div><div class="content"><p>Fondo de venture capital. Diez años invirtiendo y construyendo junto a founders.</p></div></div>
   <div class="row"><div class="label">Quién lo lleva</div><div class="content"><p>Cuatro GPs operadores. Crean y gestionan empresas reales mientras invierten.</p></div></div>
-  <div class="row"><div class="label">Resultados</div><div class="content"><p>Top decile global por DPI. Top 5% europeo. Crecimiento orgánico, sin agencia de comunicación.</p></div></div>
+  <div class="row"><div class="label">Resultados</div><div class="content"><p>Resultados probados. Miramos los ratios que un inversor espera, pero no son lo que nos define. Crecimiento orgánico, sin agencia de comunicación.</p></div></div>
   <div class="row"><div class="label">Quién invierte</div><div class="content"><p>LPs. El 80% son founders-inversores de vehículos anteriores.</p></div></div>
-  <div class="row"><div class="label">Qué nos mueve</div><div class="content"><p>El impacto de lo que construimos, antes que el múltiplo.</p>
+  <div class="row"><div class="label">Qué nos mueve</div><div class="content"><p>El impacto de lo que ayudamos a construir, antes que el retorno.</p>
     <div class="exq">La marca no inventa nada. Ordena diez años de comportamiento intrépido y lo hace legible. No fabricamos una promesa: damos forma a lo que ya hacemos.</div></div></div>
 </section>
 
 <!-- 04 PROPÓSITO -->
 <header class="opener" id="s4"><span class="num">04</span><span class="t">Propósito</span></header>
 <section class="body">
-  <p class="intro">Por qué existe LANAI. Todo lo demás es consecuencia.</p>
+  <p class="intro">Para qué está LANAI, más allá del retorno. Todo lo demás es consecuencia.</p>
 
   <div class="row">
     <div class="label">Propósito</div>
     <div class="content">
-      <div class="statement">Respaldar a founders que <span class="acc">cambian el mundo.</span></div>
-      <p class="note">El impacto llega a través de buenos resultados.</p>
+      <div class="statement">Existimos para que los founders más valientes <span class="acc">cambien el mundo.</span></div>
+      <p class="note">El impacto es el fin. La paciencia, el método: diez años, no diez trimestres.</p>
     </div>
   </div>
   <div class="row">
     <div class="label">Qué significa</div>
     <div class="content">
       <div class="items c3">
-        <div class="item"><h5>Impacto a través del resultado</h5><p>El resultado es el camino.</p></div>
-        <div class="item"><h5>Founders como aliados</h5><p>Compartimos un objetivo: un mundo mejor.</p></div>
-        <div class="item"><h5>Innovación con sentido</h5><p>Respaldamos proyectos nuevos que mueven el mundo hacia delante.</p></div>
+        <div class="item"><h5>El impacto por delante</h5><p>Medimos lo que ayudamos a construir, no solo lo que devuelve.</p></div>
+        <div class="item"><h5>Con paciencia</h5><p>Lo que importa tarda. Acompañamos años, no trimestres.</p></div>
+        <div class="item"><h5>Founders, no operaciones</h5><p>Personas a las que acompañamos, no activos que gestionamos.</p></div>
       </div>
     </div>
   </div>
@@ -436,17 +430,18 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
 <!-- 08 LENGUAJE -->
 <header class="opener" id="s8"><span class="num">08</span><span class="t">Lenguaje</span></header>
 <section class="body">
-  <p class="intro wide">Tan importante como qué decimos es cómo sonamos. Directa, específica, honesta. Siempre de alguien, para alguien.</p>
+  <p class="intro wide">Cómo suena LANAI. El hilo es la admiración genuina por el founder. Cercano, humano, honesto. Nunca por encima.</p>
 
   <div class="row" id="s8b">
     <div class="label">Voz: persona a persona</div>
     <div class="content">
       <div class="statement">Personas hablando a personas. <span class="acc">Siempre firmado.</span></div>
       <p class="note" style="margin-bottom:24px">Para LANAI todo es personal, porque es un compromiso personal: con que la inversión irá bien y con que el founder tendrá las herramientas para lograrlo.</p>
-      <div class="items c3">
-        <div class="item"><h5>Todo firmado</h5><p>Cada mensaje lo firma alguien. La comunicación genérica queda fuera.</p></div>
-        <div class="item"><h5>Mejor un founder</h5><p>Que un founder hable por el fondo pesa más que cualquier texto anónimo.</p></div>
-        <div class="item"><h5>Persona a persona</h5><p>Siempre alguien dirigiéndose a alguien, nunca una entidad a emprendedores.</p></div>
+      <div class="items">
+        <div class="item"><h5>Admiración genuina</h5><p>El tono nace de admirar a quien se atreve a construir. Nunca por encima, nunca condescendientes.</p></div>
+        <div class="item"><h5>Escuchamos, no adoctrinamos</h5><p>Preguntamos antes de opinar. El founder sabe de su empresa más que nadie.</p></div>
+        <div class="item"><h5>Persona a persona, firmado</h5><p>Cada mensaje lo firma alguien. Mejor si habla un founder. Lo genérico queda fuera.</p></div>
+        <div class="item"><h5>Cada uno con su voz</h5><p>Los estilos personales del equipo se conservan. La marca no uniforma.</p></div>
       </div>
     </div>
   </div>
@@ -454,7 +449,7 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
   <div class="row" id="s8c">
     <div class="label">Smart Brevity</div>
     <div class="content">
-      <p class="muted" style="margin-bottom:22px">Cómo escribimos. La gente escanea, no lee.</p>
+      <p class="muted" style="margin-bottom:22px">Herramienta de claridad para reporting, newsletters y mensajes de trabajo. Ahí la eficiencia manda. En lo personal, deja respirar la voz de cada uno.</p>
       <div class="items">
         <div class="item"><h5>Lo importante primero</h5><p>La idea principal abre el mensaje.</p></div>
         <div class="item"><h5>Menos, pero mejor</h5><p>Eliminar todo lo que no aporta. No es escribir poco.</p></div>
@@ -480,7 +475,7 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
           <li>Trayecto. Relación sostenida.</li>
         </ul></div>
       </div>
-      <div class="exq">Regla de una línea: dato antes que adjetivo, caso antes que claim. "Top decile global por DPI" gana a "excelentes retornos" siempre.</div>
+      <div class="exq">Regla de una línea: dato antes que adjetivo, caso antes que claim. "Entramos cuando la ronda estaba vacía" gana a "excelentes retornos" siempre.</div>
       <div class="cards" style="margin-top:26px">
         <div class="card"><h5>El "no" argumentado</h5><p>Una razón estructural, no genérica. Algo útil que dejar. Puerta abierta para la próxima. SLA menor a 7 días, también a deals de la web. Firmado por una persona.</p></div>
         <div class="card"><h5>La LP letter trimestral</h5><p>Resumen en 3 líneas. Performance con números antes que narrativa. Lo que va bien y lo que va mal, obligatorio. Una cita literal de un founder, idealmente uno bajo crisis.</p></div>
@@ -495,7 +490,7 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
   <p class="intro wide">La marca se sostiene en hechos, no en adjetivos. Estos comportamientos prueban que LANAI es intrépida y se implica con el founder.</p>
 
   <div class="row">
-    <div class="label">Nueve anclas</div>
+    <div class="label">Diez anclas</div>
     <div class="content">
       <div class="items c3">
         <div class="item"><h5><span class="ix">01</span>Apostar pronto y solo</h5><p>Respaldar al founder antes que el consenso del mercado.</p></div>
@@ -507,6 +502,7 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
         <div class="item"><h5><span class="ix">07</span>Eventos sin VCs externos</h5><p>Solo founders y LPs. Sin sponsors, sin prensa.</p></div>
         <div class="item"><h5><span class="ix">08</span>Reporting bajo crisis</h5><p>Misma cadencia cuando va mal. "Lo que va mal" siempre.</p></div>
         <div class="item"><h5><span class="ix">09</span>Dar la cara</h5><p>Mediar en el cap-table y sostener al founder bajo presión.</p></div>
+        <div class="item"><h5><span class="ix">10</span>Orgullo de los que caen</h5><p>Los founders cuya empresa cerró tienen su espacio en el reporting. Aprendemos de ellos. Igual de orgullosos que de quien vende.</p></div>
       </div>
     </div>
   </div>
@@ -555,7 +551,8 @@ footer.foot{padding:40px var(--pad-x) 70px;border-top:1px solid var(--line);font
 </section>
 
 <footer class="foot">
-  La identidad visual se entrega en un documento aparte.
+  La identidad visual se entrega en un documento aparte.<br>
+  Herramientas: las skills /lanai-studio y /lanaizar se entregan aparte.
 </footer>
 
 </main>
